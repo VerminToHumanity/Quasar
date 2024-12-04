@@ -1,0 +1,14 @@
+// app global css in SCSS form
+.background {
+    background-image: url(images/spamton-city-by-on-twitter-v0-ifaqzr2pe3ka1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: -9999;
+
+}
