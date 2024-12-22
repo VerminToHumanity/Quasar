@@ -24,8 +24,29 @@ const routes: RouteRecordRaw[] = [
    component: () => import('layouts/dashboard/DashboardLayout.vue'),
    children : [
     {
+      path : 'search',
+      name: 'search',
+      component : () => import('pages/dashboard/SearchPage.vue')
+    },
+    {
       path : 'index',
+      name: 'index',
       component : () => import('pages/dashboard/IndexPage.vue')
+    },
+    {
+      path : 'myPost',
+      name: 'myPost',
+      component : () => import('pages/dashboard/MyPostPage.vue')
+    },
+    {
+      path : 'allPost',
+      name: 'allPost',
+      component : () => import('pages/dashboard/AllPostPage.vue')
+    },
+    {
+      path : 'allUser',
+      name: 'allUser',
+      component : () => import('pages/dashboard/AllUserPage.vue')
     },
    ],
   },
