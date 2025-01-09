@@ -1,47 +1,43 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+  <q-layout class = "overflow-auto window-height">
+    <div class = "q-pa-md q-mb-xl row items-start justify-center q-gutter-sm">
+      <q-card
+      class = "my-card"
+      v-for="(post,index) in posts"
+      :key = "index"
+      >
+      <q-card class="my-card" flat bordered>
+      <q-img :src='post.image' width ="100%" height="300px"/>
+      <div class="col text-h6 ellipsis">
+       {{ post.title }}
+      </div>
+       <div class = "text-subtitle1">
+       {{ post.username }}
+      </div>
+      <div class="text-caption text-grey">
+       {{ post.description .substring(0,200) }} ...
+      </div>
+      <q-card-actions align="right">
+        <q-btn flat round
+           color="red"
+           icon-left="favorite"
+           :label="`Like ${post.upVoteCount}`"
+           @click="like(post.id)"
+        />
+        <q-btn flat round color="teal" icon="bookmark" />
+        <q-btn flat round color="primary" icon="share" />
+      </q-card-actions>
+    </q-card>
+
+      </q-card>
+    </div>
+  </q-layout>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+<script lang="ts" setup>
+import { posts } from 'components/ts/IndexComponent';
 
-defineOptions({
-  name: 'IndexPage'
-});
-
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1'
-  },
-  {
-    id: 2,
-    content: 'ct2'
-  },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
-]);
-
-const meta = ref<Meta>({
-  totalCount: 1200
-});
+const like = (id:number) => {
+  console.log(id);
+}
 </script>
